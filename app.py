@@ -1,23 +1,3 @@
-import os
-import streamlit as st
-
-# List of files you expect
-files = [
-    'monthly_sales_clean.csv',
-    'top_products_clean.csv',
-    'distributor_perf_clean.csv',
-    'client_type_clean.csv',
-    'bonus_discount_clean.csv'
-]
-
-st.subheader("Checking CSV file availability...")
-
-for f in files:
-    if os.path.exists(f):
-        st.success(f"✅ Found: {f}")
-    else:
-        st.error(f"❌ Missing: {f}")
-
 
 import streamlit as st
 import pandas as pd
@@ -60,6 +40,7 @@ st.subheader("Bonus vs Discount")
 bonus_discount['MonthYear'] = pd.to_datetime(bonus_discount[['Year','Month']].assign(DAY=1))
 fig5 = px.line(bonus_discount, x='MonthYear', y=['TotalBonus','TotalDiscount'], title='Bonus & Discount Trend')
 st.plotly_chart(fig5, use_container_width=True)
+
 
 
 
