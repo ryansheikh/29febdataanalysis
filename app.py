@@ -8,11 +8,11 @@ st.title("Company Sales Dashboard")
 
 # ---------------- CSV Files ----------------
 csv_files = {
-    "monthly_sales": "monthly_sales_clean.csv",
-    "top_products": "top_products_clean.csv",
-    "distributor_perf": "distributor_perf_clean.csv",
-    "client_type": "client_type_clean.csv",
-    "bonus_discount": "bonus_discount_clean.csv"
+    "monthly_sales": "monthly_sales.csv",
+    "top_products": "top_products.csv",
+    "distributor_perf": "distributor_perf.csv",
+    "client_type": "client_type.csv",
+    "bonus_discount": "bonus_discount.csv"
 }
 
 # Load CSVs safely
@@ -92,3 +92,4 @@ st.subheader("Bonus vs Discount Scatter")
 fig10 = px.scatter(bonus_discount, x='TotalBonus', y='TotalDiscount', size='TotalBonus', color='TotalDiscount',
                     hover_data=['Year','Month'], title='Bonus vs Discount Scatter')
 st.plotly_chart(fig10, use_container_width=True)
+
