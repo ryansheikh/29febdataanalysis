@@ -6,11 +6,11 @@ st.set_page_config(page_title="Sales Dashboard", layout="wide")
 st.title("Company Sales Dashboard")
 
 # Load CSVs
-monthly_sales = pd.read_csv('monthly_sales_clean.csv')
-top_products = pd.read_csv('top_products_clean.csv')
-distributor_perf = pd.read_csv('distributor_perf_clean.csv')
-client_type = pd.read_csv('client_type_clean.csv')
-bonus_discount = pd.read_csv('bonus_discount_clean.csv')
+monthly_sales = pd.read_csv('/content/monthly_sales_clean.csv')
+top_products = pd.read_csv('/content/top_products_clean.csv')
+distributor_perf = pd.read_csv('/content/distributor_perf_clean.csv')
+client_type = pd.read_csv('/content/client_type_clean.csv')
+bonus_discount = pd.read_csv('/content/bonus_discount_clean.csv')
 
 # 1️⃣ Monthly Sales
 st.subheader("Monthly Sales Trend")
@@ -38,3 +38,4 @@ st.subheader("Bonus vs Discount")
 bonus_discount['MonthYear'] = pd.to_datetime(bonus_discount[['Year','Month']].assign(DAY=1))
 fig5 = px.line(bonus_discount, x='MonthYear', y=['TotalBonus','TotalDiscount'], title='Bonus & Discount Trend')
 st.plotly_chart(fig5, use_container_width=True)
+
